@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+var authenRouter = require('./routes/authen');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -26,6 +27,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/items',itemsRouter);
+app.use('/authen',authenRouter);
 
 mongoose.connect("mongodb://127.0.0.1:27017/local");
 mongoose.connection.once('open', function(){
